@@ -55,10 +55,4 @@ class User extends Authenticatable {
             get: fn($value) => $this->first_name . ' ' . $this->last_name
         );
     }
-
-    protected function password(): Attribute {
-        return Attribute::make(
-            set: fn($value) => bcrypt($value)
-        );
-    }
 }

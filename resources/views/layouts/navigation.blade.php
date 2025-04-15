@@ -18,6 +18,14 @@
                 </div>
             </div>
 
+            <div class="flex flex-col justify-center">
+                <a class="text-white mb-5 pb-5" href="/ticket/create">
+                    <x-primary-button>
+                        @lang("Support Ticket")
+                    </x-primary-button>
+                </a>
+            </div>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">

@@ -1,8 +1,18 @@
 <x-guest-layout>
+
+    <h2 class="text-lg text-white text-center" style="margin-bottom: 30px">Login</h2>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
+    
+    <a class="text-white" href="{{ route('login.github') }}">
+        <x-primary-button style="margin-bottom: 20px; ">
+            @lang("Login with github")
+        </x-primary-button>
+    </a>
 
-    <form method="POST" action="{{ route('login') }}">
+    
+    <form method="POST" action="{{ route('login') }}" >
         @csrf
 
         <!-- Email Address -->
