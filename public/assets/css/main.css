@@ -1,0 +1,35 @@
+.ticket-wrapper {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.create-ticket {
+    width: 1000px;
+    padding: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(31 41 55);
+}
+.ticket-details{
+    width: 100%;
+}
+.ticket-btn-area{
+    margin-top: 15px;
+    width: 100%;
+    display: flex;
+    
+}
+.ticket-btn{
+    margin-right: 15px;
+}
+.ticket-btn:last-child{
+    margin-right: 0;
+}
+.ticket-button-wrapper{
+    width: 100%;
+    display: flex;
+}

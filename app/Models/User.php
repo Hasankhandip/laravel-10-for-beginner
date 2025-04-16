@@ -55,4 +55,12 @@ class User extends Authenticatable {
             get: fn($value) => $this->first_name . ' ' . $this->last_name
         );
     }
+
+    protected function isAdmin(): Attribute {
+        $admins = ['sam@gmail.com'];
+        return Attribute::make(
+            get: fn() => in_array($this->email, $admins)
+        );
+    }
+
 }
