@@ -19,7 +19,6 @@
             <p class="text-white">You don't have any support ticket yet.</p>
        @endforelse 
 
-
       </div>
   </div>
 </x-app-layout>

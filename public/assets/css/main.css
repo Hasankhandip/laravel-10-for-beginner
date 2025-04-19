@@ -18,8 +18,6 @@
     width: 100%;
 }
 .ticket-btn-area{
-    margin-top: 15px;
-    width: 100%;
     display: flex;
     
 }
@@ -32,4 +30,7 @@
 .ticket-button-wrapper{
     width: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
 }

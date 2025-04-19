@@ -31,20 +31,28 @@
               </div>
             </div>
 
+            @if (auth()->user()->isAdmin)
             <div class="ticket-btn-area justify-end">
               <div class="ticket-btn">
-                  <a href="{{route('ticket.edit',$ticket->id)}}">
-                      <x-primary-button >Approve</x-primary-button>
-                  </a>
+                  <form action="{{route('ticket.update',$ticket->id)}}" method="post">
+                    @csrf
+                    @method('patch')
+                    <input type="hidden" name="status" value="resolved">
+                      <x-primary-button >Resolve</x-primary-button>
+                  </form>
               </div>
               <div class="ticket-btn">
-                  <form action="{{route('ticket.destroy',$ticket->id)}}" method="post">
-                      @method('delete')
-                      @csrf
+                  <form action="{{route('ticket.update',$ticket->id)}}" method="post">
+                      @csrf  
+                      @method('patch')
+                      <input type="hidden" name="status" value="rejected">
                       <x-primary-button>Reject</x-primary-button>
                     </form>
               </div>
             </div>
+            @else
+            <p class="text-white">Status: {{$ticket->status}}</p>
+            @endif
            </div>
 
         </div>

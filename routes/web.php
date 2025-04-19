@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Profile\AvatarController;
 use App\Http\Controllers\TicketController;
@@ -37,13 +39,19 @@ Route::get('/auth/callback', function () {
     return redirect('/dashboard');
 });
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/ticket/create', [TicketController::class, 'create'])->name('ticket.create');
-//     Route::post('/ticket/create', [TicketController::class, 'store'])->name('ticket.store');
-// });
-
 Route::middleware('auth')->group(function () {
     Route::resource('/ticket', TicketController::class);
+    Route::get('view/ticket/{id}', [TicketController::class, 'viewTickt'])->name('view.ticket');
 });
 
+Route::middleware('maintenance')->group(function () {
+    Route::get('view/ticket/{id}', [TicketController::class, 'viewTickt'])->name('view.ticket');
+});
+
+// shows the form
+Route::get('/order', [OrderController::class, 'showForm']);
+// handles the form
+Route::post('/order', [OrderController::class, 'placeOrder']);
+
+Route::resource('pizzas', PizzaController::class);
 require __DIR__ . '/auth.php';
