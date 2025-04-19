@@ -5,6 +5,7 @@ use App\Http\Controllers\PizzaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Profile\AvatarController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\VatController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -53,5 +54,10 @@ Route::get('/order', [OrderController::class, 'showForm']);
 // handles the form
 Route::post('/order', [OrderController::class, 'placeOrder']);
 
+//Resourse Controller
 Route::resource('pizzas', PizzaController::class);
+
+//vat controller (15.Model)
+Route::get('/vat', [VatController::class, 'createVat'])->name('vat');
+
 require __DIR__ . '/auth.php';
